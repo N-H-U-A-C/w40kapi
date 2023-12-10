@@ -11,7 +11,7 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @JsonTest
-class W40kapiJsonTest {
+class W40kapiJsonTests {
 
     @Autowired
     private JacksonTester<Category> json;
