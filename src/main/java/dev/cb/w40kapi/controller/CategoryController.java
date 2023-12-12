@@ -23,11 +23,6 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-//    @GetMapping()
-//    public ResponseEntity<Iterable<Category>> getAll() {
-//        return ResponseEntity.ok(categoryService.getAll());
-//    }
-
     @GetMapping()
     public ResponseEntity<List<Category>> getAll(Pageable pageable) {
         Page<Category> page = categoryService.getAll(

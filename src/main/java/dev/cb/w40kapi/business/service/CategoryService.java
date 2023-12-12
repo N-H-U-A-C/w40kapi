@@ -6,8 +6,6 @@ import org.springframework.data.domain.PageRequest;
 
 public interface CategoryService {
 
-    //    Iterable<Category> getAll();
-
     Page<Category> getAll(PageRequest pageRequest);
 
 }

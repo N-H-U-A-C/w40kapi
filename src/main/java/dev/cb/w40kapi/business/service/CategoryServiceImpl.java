@@ -6,8 +6,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -16,10 +14,6 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-
-//    public Iterable<Category> getAll() {
-//        return categoryRepository.findAll();
-//    }
 
     public Page<Category> getAll(PageRequest pageRequest) {
         return categoryRepository.findAll(pageRequest);
