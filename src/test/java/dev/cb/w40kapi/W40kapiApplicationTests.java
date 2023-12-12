@@ -29,12 +29,12 @@ class W40kapiApplicationTests {
 
 		DocumentContext documentContext = JsonPath.parse(response.getBody());
 		int count = documentContext.read("$.length()");
-		assertThat(count).isEqualTo(2);
+		assertThat(count).isEqualTo(11);
 
 		JSONArray ids = documentContext.read("$..id");
-		assertThat(ids).asList().containsExactlyInAnyOrder(1,2);
+		assertThat(ids).asList().containsExactlyInAnyOrder(1,2,3,4,5,6,7,8,9,10,11);
 
 		JSONArray names = documentContext.read("$..name");
-		assertThat(names).asList().containsExactlyInAnyOrder("Thought for the day","Military");
+		assertThat(names).asList().containsExactlyInAnyOrder("Thought for the day", "Military", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th");
 	}
 }

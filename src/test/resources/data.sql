@@ -28,6 +28,15 @@ INSERT INTO excerpts(id_excerpt, title_excerpt, content) VALUES (5, 'Thought For
 ------------------------------------------------------------
 INSERT INTO categories(id_category, name_category) VALUES (1, 'Thought for the day');
 INSERT INTO categories(id_category, name_category) VALUES (2, 'Military');
+INSERT INTO categories(id_category, name_category) VALUES (3, '3rd');
+INSERT INTO categories(id_category, name_category) VALUES (4, '4th');
+INSERT INTO categories(id_category, name_category) VALUES (5, '5th');
+INSERT INTO categories(id_category, name_category) VALUES (6, '6th');
+INSERT INTO categories(id_category, name_category) VALUES (7, '7th');
+INSERT INTO categories(id_category, name_category) VALUES (8, '8th');
+INSERT INTO categories(id_category, name_category) VALUES (9, '9th');
+INSERT INTO categories(id_category, name_category) VALUES (10, '10th');
+INSERT INTO categories(id_category, name_category) VALUES (11, '11th');
 
 
 
