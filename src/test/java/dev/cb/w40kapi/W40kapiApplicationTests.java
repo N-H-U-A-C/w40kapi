@@ -19,10 +19,6 @@ class W40kapiApplicationTests {
 	TestRestTemplate restTemplate;
 
 	@Test
-	void contextLoads() {
-	}
-
-	@Test
 	void shouldReturnFirstSortedPageOf20CategoriesIfNoParameter() {
 		ResponseEntity<String> response = restTemplate.getForEntity("/categories", String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
