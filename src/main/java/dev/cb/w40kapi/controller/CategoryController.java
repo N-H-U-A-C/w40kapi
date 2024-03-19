@@ -25,12 +25,13 @@ public class CategoryController {
 
     @GetMapping()
     public ResponseEntity<List<Category>> getAll(Pageable pageable) {
-        Page<Category> page = categoryService.getAll(
-                PageRequest.of(
-                        pageable.getPageNumber(),
-                        pageable.getPageSize(),
-                        pageable.getSortOr(Sort.by(Sort.Direction.ASC, "name"))
-                ));
+        PageRequest pageRequest = PageRequest.of(
+                pageable.getPageNumber(),
+                pageable.getPageSize(),
+                pageable.getSortOr(Sort.by(Sort.Direction.ASC, "name"))
+        );
+        Page<Category> page = categoryService.getAll(pageRequest);
+
         return ResponseEntity.ok(page.getContent());
     }
 }
