@@ -21,7 +21,7 @@ class CategoryServiceImplTest {
     private PageRequest pageRequest;
 
     @Test
-    void shouldGetAll() {
+    public void shouldCallFindAllOfCategoryRepository() {
         // given
 
         // when
