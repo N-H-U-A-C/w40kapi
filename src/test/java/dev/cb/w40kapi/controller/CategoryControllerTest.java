@@ -95,8 +95,8 @@ class CategoryControllerTest {
     @Test
     void pageRequestShouldBePageOf5Categories() throws Exception {
         // given
-        PageRequest secondPage = PageRequest.of(0,5, Sort.by(Sort.Direction.ASC,"name"));
-        when(categoryService.getAll(secondPage)).thenReturn(page);
+        PageRequest pageOfFiveCategories = PageRequest.of(0,5, Sort.by(Sort.Direction.ASC,"name"));
+        when(categoryService.getAll(pageOfFiveCategories)).thenReturn(page);
 
         // when
         mockMvc.perform(get("/categories?size=5"));
@@ -104,14 +104,14 @@ class CategoryControllerTest {
         // then
         verify(categoryService).getAll(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
-        assertThat(usedPageRequest).isEqualTo(secondPage);
+        assertThat(usedPageRequest).isEqualTo(pageOfFiveCategories);
     }
 
     @Test
     void pageRequestShouldBePageOfCategoriesSortedByDescName() throws Exception {
         // given
-        PageRequest secondPage = PageRequest.of(0,20, Sort.by(Sort.Direction.DESC,"name"));
-        when(categoryService.getAll(secondPage)).thenReturn(page);
+        PageRequest pageSortedByDescName = PageRequest.of(0,20, Sort.by(Sort.Direction.DESC,"name"));
+        when(categoryService.getAll(pageSortedByDescName)).thenReturn(page);
 
         // when
         mockMvc.perform(get("/categories?sort=name,desc"));
@@ -119,6 +119,6 @@ class CategoryControllerTest {
         // then
         verify(categoryService).getAll(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
-        assertThat(usedPageRequest).isEqualTo(secondPage);
+        assertThat(usedPageRequest).isEqualTo(pageSortedByDescName);
     }
 }
