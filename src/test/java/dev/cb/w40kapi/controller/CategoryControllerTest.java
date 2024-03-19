@@ -91,4 +91,19 @@ class CategoryControllerTest {
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(secondPage);
     }
+
+    @Test
+    void pageRequestShouldBePageOf5Categories() throws Exception {
+        // given
+        PageRequest secondPage = PageRequest.of(0,5, Sort.by(Sort.Direction.ASC,"name"));
+        when(categoryService.getAll(secondPage)).thenReturn(page);
+
+        // when
+        mockMvc.perform(get("/categories?size=5"));
+
+        // then
+        verify(categoryService).getAll(captor.capture());
+        PageRequest usedPageRequest = captor.getValue();
+        assertThat(usedPageRequest).isEqualTo(secondPage);
+    }
 }
