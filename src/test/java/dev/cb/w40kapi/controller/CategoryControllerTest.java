@@ -2,7 +2,6 @@ package dev.cb.w40kapi.controller;
 
 import dev.cb.w40kapi.business.domain.Category;
 import dev.cb.w40kapi.business.service.CategoryService;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -42,13 +41,9 @@ class CategoryControllerTest {
     private ArgumentCaptor<PageRequest> captor;
 
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         defaultPageRequest = PageRequest.of(0,20, Sort.by(Sort.Direction.ASC,"name"));
         page = new PageImpl<>(List.of(new Category(55,"Test"),new Category(1,"Ok")));
-    }
-
-    @AfterEach
-    void tearDown() {
     }
 
     @Test
@@ -64,7 +59,7 @@ class CategoryControllerTest {
     }
 
     @Test
-    void pageRequestShouldBeFirstPageOf20CategoriesSortedByAscName() throws Exception {
+    public void pageRequestShouldBeFirstPageOf20CategoriesSortedByAscName() throws Exception {
         // given
         when(categoryService.getAll(defaultPageRequest)).thenReturn(page);
 
@@ -78,7 +73,7 @@ class CategoryControllerTest {
     }
 
     @Test
-    void pageRequestShouldBeSecondPageOfCategories() throws Exception {
+    public void pageRequestShouldBeSecondPageOfCategories() throws Exception {
         // given
         PageRequest secondPage = PageRequest.of(1,20, Sort.by(Sort.Direction.ASC,"name"));
         when(categoryService.getAll(secondPage)).thenReturn(page);
@@ -93,7 +88,7 @@ class CategoryControllerTest {
     }
 
     @Test
-    void pageRequestShouldBePageOf5Categories() throws Exception {
+    public void pageRequestShouldBePageOf5Categories() throws Exception {
         // given
         PageRequest pageOfFiveCategories = PageRequest.of(0,5, Sort.by(Sort.Direction.ASC,"name"));
         when(categoryService.getAll(pageOfFiveCategories)).thenReturn(page);
@@ -108,7 +103,7 @@ class CategoryControllerTest {
     }
 
     @Test
-    void pageRequestShouldBePageOfCategoriesSortedByDescName() throws Exception {
+    public void pageRequestShouldBePageOfCategoriesSortedByDescName() throws Exception {
         // given
         PageRequest pageSortedByDescName = PageRequest.of(0,20, Sort.by(Sort.Direction.DESC,"name"));
         when(categoryService.getAll(pageSortedByDescName)).thenReturn(page);
