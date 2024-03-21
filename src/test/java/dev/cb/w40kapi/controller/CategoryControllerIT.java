@@ -19,7 +19,7 @@ class CategoryControllerIT {
 	TestRestTemplate restTemplate;
 
 	@Test
-	public void shouldReturnFirstSortedPageOf20Categories() {
+	public void shouldReturnFirstPageOf20CategoriesSortedByAscName() {
 		// given
 
 		// when
