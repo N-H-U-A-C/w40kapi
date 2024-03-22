@@ -36,8 +36,8 @@ class CategoryJsonTest {
                 new Category(1, "Ok"));
         categoryArrayJson = """
                 [
-                  {"id":  55, "name": "Test"},
-                  {"id":  1, "name": "Ok"}
+                  {"id": 55, "name": "Test"},
+                  {"id": 1, "name": "Ok"}
                 ]
                 """;
     }
