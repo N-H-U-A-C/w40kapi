@@ -42,8 +42,9 @@ class CategoryControllerTest {
 
     @BeforeEach
     public void setUp() {
-        defaultPageRequest = PageRequest.of(0,20, Sort.by(Sort.Direction.ASC,"name"));
-        page = new PageImpl<>(List.of(new Category(55,"Test"),new Category(1,"Ok")));
+        defaultPageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
+        page = new PageImpl<>(List.of(new Category(55, "Test"),
+                new Category(1, "Ok")));
     }
 
     @Test
@@ -75,7 +76,7 @@ class CategoryControllerTest {
     @Test
     public void pageRequestShouldBeSecondPageOfCategories() throws Exception {
         // given
-        PageRequest secondPage = PageRequest.of(1,20, Sort.by(Sort.Direction.ASC,"name"));
+        PageRequest secondPage = PageRequest.of(1, 20, Sort.by(Sort.Direction.ASC, "name"));
         when(categoryService.getAll(secondPage)).thenReturn(page);
 
         // when
@@ -90,7 +91,7 @@ class CategoryControllerTest {
     @Test
     public void pageRequestShouldBePageOf5Categories() throws Exception {
         // given
-        PageRequest pageOfFiveCategories = PageRequest.of(0,5, Sort.by(Sort.Direction.ASC,"name"));
+        PageRequest pageOfFiveCategories = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "name"));
         when(categoryService.getAll(pageOfFiveCategories)).thenReturn(page);
 
         // when
@@ -105,7 +106,7 @@ class CategoryControllerTest {
     @Test
     public void pageRequestShouldBePageOfCategoriesSortedByDescName() throws Exception {
         // given
-        PageRequest pageSortedByDescName = PageRequest.of(0,20, Sort.by(Sort.Direction.DESC,"name"));
+        PageRequest pageSortedByDescName = PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "name"));
         when(categoryService.getAll(pageSortedByDescName)).thenReturn(page);
 
         // when
