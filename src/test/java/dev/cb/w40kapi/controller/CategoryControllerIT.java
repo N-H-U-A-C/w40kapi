@@ -3,7 +3,9 @@ package dev.cb.w40kapi.controller;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import net.minidev.json.JSONArray;
+import org.json.JSONException;
 import org.junit.jupiter.api.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -15,29 +17,43 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class CategoryControllerIT {
 
-	@Autowired
-	TestRestTemplate restTemplate;
+    @Autowired
+    TestRestTemplate restTemplate;
 
-	@Test
-	public void shouldReturnFirstPageOf20CategoriesSortedByAscName() {
-		// given
+    @Test
+    public void shouldReturnFirstPageOf20CategoriesSortedByAscName() throws JSONException {
+        // given
+        String expected = """
+                [
+                  {"id": 10, "name": "10th"},
+                  {"id": 11, "name": "11th"},
+                  {"id": 12, "name": "12th"},
+                  {"id": 13, "name": "13th"},
+                  {"id": 14, "name": "14th"},
+                  {"id": 15, "name": "15th"},
+                  {"id": 16, "name": "16th"},
+                  {"id": 17, "name": "17th"},
+                  {"id": 18, "name": "18th"},
+                  {"id": 19, "name": "19th"},
+                  {"id": 20, "name": "20th"},
+                  {"id": 21, "name": "21th"},
+                  {"id": 3, "name": "3rd"},
+                  {"id": 4, "name": "4th"},
+                  {"id": 5, "name": "5th"},
+                  {"id": 6, "name": "6th"},
+                  {"id": 7, "name": "7th"},
+                  {"id": 8, "name": "8th"},
+                  {"id": 9, "name": "9th"},
+                  {"id": 2, "name": "Military"}
+                ]
+                """;
 
-		// when
-		ResponseEntity<String> response = restTemplate.getForEntity("/categories", String.class);
+        // when
+        ResponseEntity<String> response = restTemplate.getForEntity("/categories", String.class);
 
-		// then
-		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+        // then
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
-		DocumentContext documentContext = JsonPath.parse(response.getBody());
-
-		JSONArray page = documentContext.read("$[*]");
-		assertThat(page.size()).isEqualTo(20);
-
-		JSONArray ids = documentContext.read("$..id");
-		assertThat(ids).asList().containsExactly(10,11,12,13,14,15,16,17,18,19,20,21,3,4,5,6,7,8,9,2);
-
-		JSONArray names = documentContext.read("$..name");
-		assertThat(names).asList().containsExactly("10th","11th","12th","13th","14th","15th","16th","17th","18th","19th",
-				"20th","21th","3rd","4th","5th","6th","7th","8th","9th","Military");
-	}
+        JSONAssert.assertEquals(expected, response.getBody(), true);
+    }
 }
