@@ -6,11 +6,23 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+/**
+ * Implementation of {@link CategoryService} interface.
+ *
+ * @author N.H.U.A.C
+ * @version 1.0
+ * @see Category
+ */
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
     private CategoryRepository categoryRepository;
 
+    /**
+     * Creates a new {@code CategoryServiceImpl}.
+     *
+     * @param categoryRepository the {@link CategoryRepository} used for the initialization.
+     */
     public CategoryServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
