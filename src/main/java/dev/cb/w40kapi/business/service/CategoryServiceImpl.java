@@ -3,7 +3,7 @@ package dev.cb.w40kapi.business.service;
 import dev.cb.w40kapi.business.domain.Category;
 import dev.cb.w40kapi.persistence.CategoryRepository;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 /**
@@ -27,7 +27,7 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public Page<Category> getAll(PageRequest pageRequest) {
-        return categoryRepository.findAll(pageRequest);
+    public Page<Category> getAll(Pageable pageable) {
+        return categoryRepository.findAll(pageable);
     }
 }
