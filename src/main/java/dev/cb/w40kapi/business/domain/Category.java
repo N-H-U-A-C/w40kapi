@@ -1,17 +1,54 @@
 package dev.cb.w40kapi.business.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Column;
-import org.springframework.data.relational.core.mapping.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+import java.util.Objects;
 
 /**
- * Record that models the category an {@code dev.cb.w40kapi.business.domain.Excerpt} can have. A category has an id and a name.
+ * Class that models the category an {@code dev.cb.w40kapi.business.domain.Excerpt} can have. A category has an id and a name.
  *
- * @param id   an integer.
- * @param name a string.
  * @author N.H.U.A.C
  * @version 1.0
  */
-public @Table("CATEGORIES") record Category(@Id @Column("ID_CATEGORY") Integer id,
-                                            @Column("NAME_CATEGORY") String name) {
+@Entity
+@Table(name = "CATEGORIES")
+public class Category {
+
+    @Id
+    @Column(name = "ID_CATEGORY")
+    private Integer id;
+    @Column(name = "NAME_CATEGORY")
+    private String name;
+
+    protected Category() {
+    }
+
+    public Category(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return Objects.equals(getId(), category.getId()) && Objects.equals(getName(), category.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName());
+    }
 }
