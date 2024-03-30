@@ -23,9 +23,18 @@ public class Category {
     @Column(name = "NAME_CATEGORY")
     private String name;
 
+    /**
+     * Creates a new {@code Category}.
+     */
     protected Category() {
     }
 
+    /**
+     * Creates a new {@code Category}.
+     *
+     * @param id   the id used for the initialization.
+     * @param name the name used for the initialization.
+     */
     public Category(Integer id, String name) {
         this.id = id;
         this.name = name;

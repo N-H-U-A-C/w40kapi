@@ -27,6 +27,7 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
+    @Override
     public Page<Category> getAll(Pageable pageable) {
         return categoryRepository.findAll(pageable);
     }
