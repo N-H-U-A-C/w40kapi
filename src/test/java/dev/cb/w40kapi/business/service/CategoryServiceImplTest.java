@@ -19,7 +19,6 @@ class CategoryServiceImplTest {
     private CategoryServiceImpl classUnderTest;
     @Mock
     private CategoryRepository categoryRepository;
-
     private PageRequest pageRequest;
 
     @BeforeEach

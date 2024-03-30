@@ -27,23 +27,20 @@ class CategoryControllerTest {
 
     @Autowired
     private CategoryController classUnderTest;
-
     @Autowired
     private MockMvc mockMvc;
-
     @MockBean
     private CategoryService categoryService;
-
     private PageRequest defaultPageRequest;
-    private Page<Category> page;
-
     @Captor
     private ArgumentCaptor<PageRequest> captor;
+    private Page<Category> page;
 
     @BeforeEach
     public void setUp() {
         defaultPageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
-        page = new PageImpl<>(List.of(new Category(55, "Test"),
+        page = new PageImpl<>(List.of(
+                new Category(55, "Test"),
                 new Category(1, "Ok")));
     }
 
