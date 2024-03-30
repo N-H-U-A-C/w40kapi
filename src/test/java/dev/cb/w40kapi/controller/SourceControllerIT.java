@@ -15,7 +15,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 class SourceControllerIT {
 
     @Autowired
-    TestRestTemplate restTemplate;""
+    TestRestTemplate restTemplate;
 
     @Test
     public void shouldReturnFirstPageofSourcesSortedByAscTitle() throws JSONException {
