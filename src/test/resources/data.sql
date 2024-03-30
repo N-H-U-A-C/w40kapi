@@ -54,6 +54,10 @@ INSERT INTO categories(id_category, name_category) VALUES (21, '21th');
 -- Table: sources
 ------------------------------------------------------------
 INSERT INTO sources(id_source, title_source, publication) VALUES (1, 'Rulebook (3rd Ed.)', 1998);
+INSERT INTO sources(id_source, title_source, publication) VALUES (2, 'Rulebook (4th Ed.)', 2004);
+INSERT INTO sources(id_source, title_source, publication) VALUES (3, 'Rulebook (5th Ed.)', 2008);
+INSERT INTO sources(id_source, title_source, publication) VALUES (4, 'Codex', 1998);
+INSERT INTO sources(id_source, title_source, publication) VALUES (5, 'Dummy Book', 1950);
 
 
 
