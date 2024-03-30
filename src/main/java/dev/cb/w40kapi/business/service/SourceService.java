@@ -1,6 +1,6 @@
 package dev.cb.w40kapi.business.service;
 
-import dev.cb.w40kapi.business.domain.Category;
+import dev.cb.w40kapi.business.domain.Source;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -18,5 +18,5 @@ public interface SourceService {
      * @param pageable the {@code Pageable} to request a paged result.
      * @return a {@code Page} of {@code Source}.
      */
-    Page<Category> getAll(Pageable pageable);
+    Page<Source> getAll(Pageable pageable);
 }
