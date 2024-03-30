@@ -1,5 +1,6 @@
 package dev.cb.w40kapi.business.domain;
 
+import dev.cb.w40kapi.persistence.SourceRepository;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -29,6 +30,13 @@ public class Source {
     protected Source() {
     }
 
+    /**
+     * Creates a new {@code Source}.
+     *
+     * @param id the id used for the initialization.
+     * @param title the title used for the initialization.
+     * @param publication the {@code Year} used for the initialization.
+     */
     public Source(Integer id, String title, Year publication) {
         this.id = id;
         this.title = title;
