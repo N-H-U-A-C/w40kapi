@@ -1,5 +1,10 @@
 package dev.cb.w40kapi.business.domain;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.time.Year;
 import java.util.Objects;
 
@@ -9,10 +14,16 @@ import java.util.Objects;
  * * @author N.H.U.A.C
  * * @version 1.0
  */
+@Entity
+@Table(name = "SOURCES")
 public class Source {
 
+    @Id
+    @Column(name = "ID_SOURCE")
     private Integer id;
+    @Column(name = "TITLE_SOURCE")
     private String title;
+    @Column(name = "PUBLICATION")
     private Year publication;
 
     protected Source() {
