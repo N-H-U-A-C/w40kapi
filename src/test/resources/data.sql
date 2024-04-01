@@ -9,6 +9,9 @@
 ------------------------------------------------------------
 INSERT INTO authors(id_author, name_author) VALUES (1, 'Inquisitor Damarn');
 INSERT INTO authors(id_author, name_author) VALUES (2, 'Inquisitor Czevak');
+INSERT INTO authors(id_author, name_author) VALUES (3, 'Casimir');
+INSERT INTO authors(id_author, name_author) VALUES (4, 'Boba Fett');
+INSERT INTO authors(id_author, name_author) VALUES (5, 'Victor Hugo');
 
 
 
