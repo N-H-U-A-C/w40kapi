@@ -1,9 +1,6 @@
 package dev.cb.w40kapi.business.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -18,6 +15,7 @@ import java.util.Objects;
 public class Title {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_TITLE")
     private Integer id;
     @Column(name = "NAME_TITLE")
