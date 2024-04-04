@@ -30,7 +30,7 @@ class AuthorJsonTest {
                 {
                     "id": 5,
                     "name": "Chuck Palahniuk"
-                }
+                  }
                 """;
         authorArray = Arrays.array(
                 new Author(5, "Chuck Palahniuk"),
@@ -51,7 +51,7 @@ class AuthorJsonTest {
         String result = this.objectMapper.writeValueAsString(author);
 
         // then
-        JSONAssert.assertEquals(authorJson, result, false);
+        JSONAssert.assertEquals(authorJson, result, true);
     }
 
     @Test
