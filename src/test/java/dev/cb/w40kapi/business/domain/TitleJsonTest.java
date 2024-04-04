@@ -30,7 +30,7 @@ public class TitleJsonTest {
                 {
                     "id": 9,
                     "name": "Lord"
-                }
+                  }
                 """;
         titleArray = Arrays.array(
                 new Title(9, "Lord"),
@@ -52,7 +52,8 @@ public class TitleJsonTest {
         String result = this.objectMapper.writeValueAsString(title);
 
         // then
-        JSONAssert.assertEquals(titleJson, result, false);
+        System.out.println(title);
+        JSONAssert.assertEquals(titleJson, result, true);
     }
 
     @Test
