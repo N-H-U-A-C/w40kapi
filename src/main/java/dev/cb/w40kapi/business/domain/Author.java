@@ -1,6 +1,5 @@
 package dev.cb.w40kapi.business.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -27,7 +26,6 @@ public class Author {
     @JoinTable(name = "DESIGNATE",
             joinColumns = @JoinColumn(name = "ID_AUTHOR"),
             inverseJoinColumns = @JoinColumn(name = "ID_TITLE"))
-    @JsonIgnore
     private List<Title> titles = new ArrayList<>();
 
     /**

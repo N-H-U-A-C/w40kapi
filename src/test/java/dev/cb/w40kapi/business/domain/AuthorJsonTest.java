@@ -10,6 +10,8 @@ import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
 
+import java.util.List;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @JsonTest
@@ -25,20 +27,26 @@ class AuthorJsonTest {
 
     @BeforeEach
     void setUp() {
-        author = new Author(5, "Chuck Palahniuk");
+        author = new Author(5, "Chuck Palahniuk", List.of(new Title(9, "Lord")));
         authorJson = """
                 {
                     "id": 5,
-                    "name": "Chuck Palahniuk"
+                    "name": "Chuck Palahniuk",
+                    "titles": [
+                      {
+                        "id": 9,
+                        "name": "Lord"
+                      }
+                    ]
                   }
                 """;
         authorArray = Arrays.array(
-                new Author(5, "Chuck Palahniuk"),
+                new Author(5, "Chuck Palahniuk", List.of(new Title(9, "Lord"))),
                 new Author(55, "OK Cowboy"));
         authorArrayJson = """
                 [
-                    {"id": 5, "name": "Chuck Palahniuk"},
-                    {"id": 55, "name" : "OK Cowboy"}
+                    {"id": 5, "name": "Chuck Palahniuk", "titles": [{"id": 9, "name": "Lord"}]},
+                    {"id": 55, "name" : "OK Cowboy", "titles": []}
                 ]
                 """;
     }
