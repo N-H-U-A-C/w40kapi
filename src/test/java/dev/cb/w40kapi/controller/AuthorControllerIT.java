@@ -1,5 +1,6 @@
 package dev.cb.w40kapi.controller;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -22,16 +23,26 @@ public class AuthorControllerIT {
         // given
         String expected = """
                 [
-                    {"id": 4, "name": "Boba Fett"},
-                    {"id": 3, "name": "Casimir"},
-                    {"id": 2, "name": "Inquisitor Czevak"},
-                    {"id": 1, "name": "Inquisitor Damarn"},
-                    {"id": 5, "name": "Victor Hugo"}
+                    {"id": 4, "name": "Boba Fett", "titles": []},
+                    {"id": 3, "name": "Casimir", "titles": []},
+                    {"id": 2, "name": "Inquisitor Czevak", "titles": []},
+                    {"id": 1, "name": "Inquisitor Damarn", "titles": [{"id": 1, "name": "Ordo Malleus"}]},
+                    {"id": 5, "name": "Victor Hugo", "titles": []}
                 ]
                 """;
+//        String expected = """
+//                [
+//                    {"id": 4, "name": "Boba Fett"},
+//                    {"id": 3, "name": "Casimir"},
+//                    {"id": 2, "name": "Inquisitor Czevak"},
+//                    {"id": 1, "name": "Inquisitor Damarn"},
+//                    {"id": 5, "name": "Victor Hugo"}
+//                ]
+//                """;
 
         // when
         ResponseEntity<String> response = restTemplate.getForEntity("/authors", String.class);
+//        ResponseEntity<JSONArray> response = restTemplate.getForEntity("/authors", JSONArray.class);
 
         // then
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

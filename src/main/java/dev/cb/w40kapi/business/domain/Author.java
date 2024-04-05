@@ -1,10 +1,9 @@
 package dev.cb.w40kapi.business.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -23,6 +22,12 @@ public class Author {
     @Column(name = "NAME_AUTHOR")
     private String name;
 
+    @ManyToMany
+    @JoinTable(name = "DESIGNATE",
+            joinColumns = @JoinColumn(name = "ID_AUTHOR"),
+            inverseJoinColumns = @JoinColumn(name = "ID_TITLE"))
+    private List<Title> titles = new ArrayList<>();
+
     /**
      * Creates a new {@code Author}.
      */
@@ -40,6 +45,19 @@ public class Author {
         this.name = name;
     }
 
+    /**
+     * Creates a new {@code Author}.
+     *
+     * @param id     the id used for the initialization.
+     * @param name   the name used for the initialization.
+     * @param titles the list of titles used for the initialization.
+     */
+    public Author(Integer id, String name, List<Title> titles) {
+        this.id = id;
+        this.name = name;
+        this.titles = titles;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -48,16 +66,29 @@ public class Author {
         return name;
     }
 
+    public List<Title> getTitles() {
+        return titles;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Author author1 = (Author) o;
-        return Objects.equals(getId(), author1.getId()) && Objects.equals(getName(), author1.getName());
+        Author author = (Author) o;
+        return Objects.equals(getId(), author.getId()) && Objects.equals(getName(), author.getName()) && Objects.equals(getTitles(), author.getTitles());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName());
+        return Objects.hash(getId(), getName(), getTitles());
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+               "id=" + id +
+               ", name='" + name + '\'' +
+               ", titles=" + titles +
+               '}';
     }
 }
