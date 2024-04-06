@@ -5,10 +5,11 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 /**
- * Class that models an excerpt. An excerpt has an id and a name.
+ * Class that models an excerpt. An excerpt has an id and a content, and can have a title, a context and an {@code Author}.
  *
  * @author N.H.U.A.C
  * @version 1.0
+ * @see Author
  */
 @Entity
 @Table(name = "EXCERPTS")
