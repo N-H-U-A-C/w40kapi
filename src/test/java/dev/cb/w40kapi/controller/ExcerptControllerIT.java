@@ -22,19 +22,20 @@ public class ExcerptControllerIT {
         // given
         String expected = """
                 {
-                    "id": 3,
-                    "title": null,
-                    "content": "There is a terrible darkness descending upon the galaxy, and we shall not see it end in our lifetimes.",
-                    "context": "at the Conclave of Har",
+                    "id": 6,
+                    "title": "This is a title test",
+                    "content": "Dummy content",
+                    "context": "This is a context test",
                     "author": {
-                        "id": 2,
-                        "name": "Inquisitor Czevak"
+                        "id": 5,
+                        "name": "Victor Hugo",
+                        "titles": [{"id": 2, "name": "Lord Commander"}]
                     }
                 }
                 """;
 
         // when
-        ResponseEntity<String> response = restTemplate.getForEntity("/excerpts/3", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity("/excerpts/6", String.class);
 
         // then
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
