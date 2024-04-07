@@ -1,9 +1,6 @@
 package dev.cb.w40kapi.business.service;
 
-import dev.cb.w40kapi.business.domain.Author;
 import dev.cb.w40kapi.business.domain.Excerpt;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import java.util.Optional;
 
