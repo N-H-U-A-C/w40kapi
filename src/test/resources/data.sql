@@ -23,6 +23,7 @@ INSERT INTO excerpts(id_excerpt, content) VALUES (2, 'May the Emperor''s Wrath f
 INSERT INTO excerpts(id_excerpt, content, context, id_author) VALUES (3, 'There is a terrible darkness descending upon the galaxy, and we shall not see it end in our lifetimes.', 'at the Conclave of Har', 2);
 INSERT INTO excerpts(id_excerpt, content) VALUES (4, 'Hope is the first step on the road to disappointment.');
 INSERT INTO excerpts(id_excerpt, title_excerpt, content) VALUES (5, 'Thought For The Day', 'If a job''s worth doing it''s worth dying for!');
+INSERT INTO excerpts(id_excerpt, title_excerpt, content, context, id_author) VALUES (6, 'This is a title test', 'Dummy content', 'This is a context test', 5);
 
 
 
@@ -68,6 +69,7 @@ INSERT INTO sources(id_source, title_source, publication) VALUES (5, 'Dummy Book
 -- Table: titles
 ------------------------------------------------------------
 INSERT INTO titles(id_title, name_title) VALUES (1, 'Ordo Malleus');
+INSERT INTO titles(id_title, name_title) VALUES (2, 'Lord Commander');
 
 
 
@@ -79,13 +81,14 @@ INSERT INTO include(id_source, id_excerpt, page) VALUES (1, 2, 1);
 INSERT INTO include(id_source, id_excerpt, page) VALUES (1, 3, 39);
 INSERT INTO include(id_source, id_excerpt, page) VALUES (1, 4, 52);
 INSERT INTO include(id_source, id_excerpt, page) VALUES (1, 5, 64);
+INSERT INTO include(id_source, id_excerpt, page) VALUES (5, 6, 99);
 
 
 
 ------------------------------------------------------------
 -- Table: categorize
 ------------------------------------------------------------
-INSERT INTO categorize(id_category, id_excerpt) VALUES (1, 5);
+INSERT INTO categorize(id_category, id_excerpt) VALUES (1, 6);
 
 
 
@@ -93,3 +96,4 @@ INSERT INTO categorize(id_category, id_excerpt) VALUES (1, 5);
 -- Table: designate
 ------------------------------------------------------------
 INSERT INTO designate(id_author, id_title) VALUES (1, 1);
+INSERT INTO designate(id_author, id_title) VALUES (5, 2);
