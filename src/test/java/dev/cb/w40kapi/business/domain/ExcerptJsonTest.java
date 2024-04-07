@@ -32,7 +32,9 @@ public class ExcerptJsonTest {
                     "title" : "Title",
                     "content" : "Content",
                     "context": "Context",
-                    "author": null
+                    "author": null,
+                    "categories": [],
+                    "sources": []
                 }
                 """;
         excerptArray = Arrays.array(
@@ -40,8 +42,8 @@ public class ExcerptJsonTest {
                 new Excerpt(6, "This is a title", "This is a content", "This is a context"));
         excerptArrayJson = """
                 [
-                    {"id": 3, "title" : "Title", "content" : "Content", "context": "Context", "author": null},
-                    {"id": 6, "title" : "This is a title", "content" : "This is a content", "context": "This is a context", "author": null}
+                    {"id": 3, "title" : "Title", "content" : "Content", "context": "Context", "author": null, "categories": [], "sources": []},
+                    {"id": 6, "title" : "This is a title", "content" : "This is a content", "context": "This is a context", "author": null, "categories": [], "sources": []}
                 ]
                 """;
     }
