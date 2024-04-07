@@ -43,12 +43,6 @@ public class ExcerptController {
     public ResponseEntity<Excerpt> getById(@PathVariable Integer id) {
         Optional<Excerpt> excerptOptional = excerptService.getById(id);
 
-//        if (excerptOptional.isPresent()) {
-//            responseEntity = ResponseEntity.ok(excerptOptional.get());
-//        } else {
-//            responseEntity = ResponseEntity.notFound().build();
-//        }
-
         return excerptOptional.isPresent() ? ResponseEntity.ok(excerptOptional.get()) : ResponseEntity.notFound().build();
     }
 }
