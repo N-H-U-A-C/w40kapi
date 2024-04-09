@@ -40,7 +40,7 @@ public class ExcerptControllerIT {
         // then
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 
-        JSONAssert.assertEquals(expected, response.getBody(), false);
+        JSONAssert.assertEquals(expected, response.getBody(), true);
     }
 
     @Test
