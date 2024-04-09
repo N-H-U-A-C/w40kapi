@@ -27,7 +27,7 @@ public class AuthorControllerIT {
                     {"id": 3, "name": "Casimir", "titles": []},
                     {"id": 2, "name": "Inquisitor Czevak", "titles": []},
                     {"id": 1, "name": "Inquisitor Damarn", "titles": [{"id": 1, "name": "Ordo Malleus"}]},
-                    {"id": 5, "name": "Victor Hugo", "titles": []}
+                    {"id": 5, "name": "Victor Hugo", "titles": [{"id": 2, "name": "Lord Commander"}]}
                 ]
                 """;
 //        String expected = """
