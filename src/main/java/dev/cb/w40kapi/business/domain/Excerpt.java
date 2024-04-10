@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Class that models an excerpt. An excerpt has an id and a content, and can have a title, a context, an {@code Author}, some {@code Category} and some {@code Source}.
+ * Class that models an excerpt. An excerpt has an id, a content and at least one {@code Source}, and can have a title, a context, an {@code Author}, multiple {@code Category} and anothers {@code Source}.
  *
  * @author N.H.U.A.C
  * @version 1.0
