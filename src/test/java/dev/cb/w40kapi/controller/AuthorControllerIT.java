@@ -29,19 +29,9 @@ public class AuthorControllerIT {
                     {"id": 5, "name": "Victor Hugo", "titles": [{"id": 2, "name": "Lord Commander"}]}
                 ]
                 """;
-//        String expected = """
-//                [
-//                    {"id": 4, "name": "Boba Fett"},
-//                    {"id": 3, "name": "Casimir"},
-//                    {"id": 2, "name": "Inquisitor Czevak"},
-//                    {"id": 1, "name": "Inquisitor Damarn"},
-//                    {"id": 5, "name": "Victor Hugo"}
-//                ]
-//                """;
 
         // when
         ResponseEntity<String> response = restTemplate.getForEntity("/authors", String.class);
-//        ResponseEntity<JSONArray> response = restTemplate.getForEntity("/authors", JSONArray.class);
 
         // then
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
