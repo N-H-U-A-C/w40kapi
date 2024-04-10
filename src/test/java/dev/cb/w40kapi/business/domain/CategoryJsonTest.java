@@ -51,7 +51,7 @@ class CategoryJsonTest {
         String result = this.objectMapper.writeValueAsString(category);
 
         // then
-        JSONAssert.assertEquals(categoryJson, result, false);
+        JSONAssert.assertEquals(categoryJson, result, true);
     }
 
     @Test

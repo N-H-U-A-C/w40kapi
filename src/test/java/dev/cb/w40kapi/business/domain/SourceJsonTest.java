@@ -53,7 +53,7 @@ public class SourceJsonTest {
         String result = this.objectMapper.writeValueAsString(source);
 
         // then
-        JSONAssert.assertEquals(sourceJson, result, false);
+        JSONAssert.assertEquals(sourceJson, result, true);
     }
 
     @Test
