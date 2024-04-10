@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Class that models an excerpt. An excerpt has an id and a content, and can have a title, a context and an {@code Author}.
+ * Class that models an excerpt. An excerpt has an id and a content, and can have a title, a context, an {@code Author}, some {@code Category} and some {@code Source}.
  *
  * @author N.H.U.A.C
  * @version 1.0
  * @see Author
+ * @see Category
+ * @see Source
  */
 @Entity
 @Table(name = "EXCERPTS")
@@ -63,33 +65,6 @@ public class Excerpt {
         this.title = title;
         this.content = content;
         this.context = context;
-    }
-
-    /**
-     * Creates a new {@code Excerpt}
-     *
-     * @param id      the id used for the initialization.
-     * @param title   the title used for the initialization.
-     * @param content the content used for the initialization.
-     * @param context the context used for the initialization.
-     * @param author  the author used for the initialization.
-     */
-    public Excerpt(Integer id, String title, String content, String context, Author author) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.context = context;
-        this.author = author;
-    }
-
-    public Excerpt(Integer id, String title, String content, String context, Author author, List<Category> categories, List<Source> sources) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.context = context;
-        this.author = author;
-        this.categories = categories;
-        this.sources = sources;
     }
 
     public Integer getId() {
