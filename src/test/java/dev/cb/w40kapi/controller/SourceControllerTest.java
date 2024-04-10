@@ -9,9 +9,9 @@ import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -35,12 +35,12 @@ class SourceControllerTest {
     private PageRequest defaultPageRequest;
     @Captor
     private ArgumentCaptor<PageRequest> captor;
-    private Page<Source> page;
+    private Slice<Source> slice;
 
     @BeforeEach
     public void setUp() {
         defaultPageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "title"));
-        page = new PageImpl<>(List.of(
+        slice = new PageImpl<>(List.of(
                 new Source(33, "Test", Year.of(2011)),
                 new Source(5, "Rulebook", Year.of(1998))));
     }
@@ -48,7 +48,7 @@ class SourceControllerTest {
     @Test
     public void shouldCallGetAllOfSourceService() {
         // given
-        when(sourceService.getAll(defaultPageRequest)).thenReturn(page);
+        when(sourceService.getAll(defaultPageRequest)).thenReturn(slice);
 
         // when
         classUnderTest.getAll(defaultPageRequest);
@@ -60,7 +60,7 @@ class SourceControllerTest {
     @Test
     public void pageRequestShouldBeFirstPageOf20SourcesSortedByAscTitle() throws Exception {
         // given
-        when(sourceService.getAll(defaultPageRequest)).thenReturn(page);
+        when(sourceService.getAll(defaultPageRequest)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/sources"));
@@ -75,7 +75,7 @@ class SourceControllerTest {
     public void pageRequestShouldBeSecondPageOfSources() throws Exception {
         // given
         PageRequest secondPage = PageRequest.of(1, 20, Sort.by(Sort.Direction.ASC, "title"));
-        when(sourceService.getAll(secondPage)).thenReturn(page);
+        when(sourceService.getAll(secondPage)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/sources?page=1"));
@@ -90,7 +90,7 @@ class SourceControllerTest {
     public void pageRequestShouldBePageOf5Sources() throws Exception {
         // given
         PageRequest pageOfFiveSources = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "title"));
-        when(sourceService.getAll(pageOfFiveSources)).thenReturn(page);
+        when(sourceService.getAll(pageOfFiveSources)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/sources?size=5"));
@@ -105,7 +105,7 @@ class SourceControllerTest {
     public void pageRequestShouldBePageOfSourcesSortedByDescTitle() throws Exception {
         // given
         PageRequest pageSortedByDescTitle = PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "title"));
-        when(sourceService.getAll(pageSortedByDescTitle)).thenReturn(page);
+        when(sourceService.getAll(pageSortedByDescTitle)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/sources?sort=title,desc"));

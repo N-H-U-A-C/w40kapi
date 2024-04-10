@@ -2,9 +2,9 @@ package dev.cb.w40kapi.controller;
 
 import dev.cb.w40kapi.business.domain.Author;
 import dev.cb.w40kapi.business.service.AuthorService;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,9 +37,9 @@ public class AuthorController {
 
     /**
      * {@code GET "/"}
-     * Returns a {@code List} of {@link Author}. By default, creates the {@code List} from the first {@link Page} of 20 {@code Author} sorted by ascending name.
+     * Returns a {@code List} of {@link Author}. By default, creates the {@code List} from the first {@link Slice} of 20 {@code Author} sorted by ascending name.
      *
-     * @param pageable the url parameters, can modify the page number, the page size and the page sorting.
+     * @param pageable the url parameters, can modify the slice number, the slice size and the slice sorting.
      * @return a {@link ResponseEntity} with status code {@code 200 (OK)} and with body a {@code List} of {@code Author}.
      */
     @GetMapping()
@@ -49,8 +49,8 @@ public class AuthorController {
                 pageable.getPageSize(),
                 pageable.getSortOr(Sort.by(Sort.Direction.ASC, "name"))
         );
-        Page<Author> page = authorService.getAll(pageRequest);
+        Slice<Author> slice = authorService.getAll(pageRequest);
 
-        return ResponseEntity.ok(page.getContent());
+        return ResponseEntity.ok(slice.getContent());
     }
 }
