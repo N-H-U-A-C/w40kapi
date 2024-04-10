@@ -23,7 +23,7 @@ class CategoryServiceImplTest {
 
     @BeforeEach
     public void setUp() {
-        pageRequest = PageRequest.of(0,20, Sort.by(Sort.Direction.ASC,"name"));
+        pageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
     }
 
     @Test
