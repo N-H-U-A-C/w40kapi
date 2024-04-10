@@ -60,4 +60,12 @@ public class Category {
     public int hashCode() {
         return Objects.hash(getId(), getName());
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+               "id=" + id +
+               ", name='" + name + '\'' +
+               '}';
+    }
 }
