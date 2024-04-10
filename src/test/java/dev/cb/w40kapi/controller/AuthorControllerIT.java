@@ -1,6 +1,5 @@
 package dev.cb.w40kapi.controller;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
