@@ -1,7 +1,6 @@
 package dev.cb.w40kapi.business.service;
 
 import dev.cb.w40kapi.business.domain.Author;
-import dev.cb.w40kapi.business.domain.Category;
 import dev.cb.w40kapi.persistence.AuthorRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
