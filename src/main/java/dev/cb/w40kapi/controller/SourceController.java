@@ -27,7 +27,7 @@ public class SourceController {
     private SourceService sourceService;
 
     /**
-     * Creates a new {@link SourceController}.
+     * Creates a new {@code SourceController}.
      *
      * @param sourceService the {@link SourceService} used for the initialization.
      */

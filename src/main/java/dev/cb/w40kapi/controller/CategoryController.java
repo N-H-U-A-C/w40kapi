@@ -27,7 +27,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     /**
-     * Creates a new {@link CategoryController}.
+     * Creates a new {@code CategoryController}.
      *
      * @param categoryService the {@link CategoryService} used for the initialization.
      */
