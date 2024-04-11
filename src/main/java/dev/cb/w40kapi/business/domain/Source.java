@@ -69,4 +69,13 @@ public class Source {
     public int hashCode() {
         return Objects.hash(getId(), getTitle(), getPublication());
     }
+
+    @Override
+    public String toString() {
+        return "Source{" +
+               "id=" + id +
+               ", title='" + title + '\'' +
+               ", publication=" + publication +
+               '}';
+    }
 }

@@ -9,9 +9,9 @@ import org.mockito.Captor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -34,12 +34,12 @@ class AuthorControllerTest {
     private PageRequest defaultPageRequest;
     @Captor
     private ArgumentCaptor<PageRequest> captor;
-    private Page<Author> page;
+    private Slice<Author> slice;
 
     @BeforeEach
     public void setUp() {
         defaultPageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
-        page = new PageImpl<>(List.of(
+        slice = new PageImpl<>(List.of(
                 new Author(5, "Chuck Palahniuk"),
                 new Author(55, "OK Cowboy")));
     }
@@ -47,7 +47,7 @@ class AuthorControllerTest {
     @Test
     public void shouldCallGetAllOfAuthorService() {
         // given
-        when(authorService.getAll(defaultPageRequest)).thenReturn(page);
+        when(authorService.getAll(defaultPageRequest)).thenReturn(slice);
 
         // when
         classUnderTest.getAll(defaultPageRequest);
@@ -59,7 +59,7 @@ class AuthorControllerTest {
     @Test
     public void pageRequestShouldBeFirstPageOf20AuthorsSortedByAscName() throws Exception {
         // given
-        when(authorService.getAll(defaultPageRequest)).thenReturn(page);
+        when(authorService.getAll(defaultPageRequest)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/authors"));
@@ -74,7 +74,7 @@ class AuthorControllerTest {
     public void pageRequestShouldBeSecondPageOfAuthors() throws Exception {
         // given
         PageRequest secondPage = PageRequest.of(1, 20, Sort.by(Sort.Direction.ASC, "name"));
-        when(authorService.getAll(secondPage)).thenReturn(page);
+        when(authorService.getAll(secondPage)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/authors?page=1"));
@@ -89,7 +89,7 @@ class AuthorControllerTest {
     public void pageRequestShouldBePageOf5Authors() throws Exception {
         // given
         PageRequest pageOfFiveAuthors = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "name"));
-        when(authorService.getAll(pageOfFiveAuthors)).thenReturn(page);
+        when(authorService.getAll(pageOfFiveAuthors)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/authors?size=5"));
@@ -104,7 +104,7 @@ class AuthorControllerTest {
     public void pageRequestShouldBePageOfAuthorsSortedByDescName() throws Exception {
         // given
         PageRequest pageSortedByDescName = PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "name"));
-        when(authorService.getAll(pageSortedByDescName)).thenReturn(page);
+        when(authorService.getAll(pageSortedByDescName)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/authors?sort=name,desc"));

@@ -1,8 +1,8 @@
 package dev.cb.w40kapi.business.service;
 
 import dev.cb.w40kapi.business.domain.Category;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 
 /**
  * Interface for business logic for {@link Category}.
@@ -13,11 +13,11 @@ import org.springframework.data.domain.Pageable;
 public interface CategoryService {
 
     /**
-     * Returns a {@link Page} of {@link Category} meeting the paging restriction provided in the {@link Pageable} object.
+     * Returns a {@link Slice} of {@link Category} meeting the paging restriction provided in the {@link Pageable} object.
      *
-     * @param pageable the {@code Pageable} to request a paged result.
-     * @return a {@code Page} of {@code Category}.
+     * @param pageable the {@code Pageable} to request a sliced result.
+     * @return a {@code Slice} of {@code Category}.
      */
-    Page<Category> getAll(Pageable pageable);
+    Slice<Category> getAll(Pageable pageable);
 
 }

@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import static org.mockito.Mockito.verify;
@@ -19,11 +20,11 @@ class CategoryServiceImplTest {
     private CategoryServiceImpl classUnderTest;
     @Mock
     private CategoryRepository categoryRepository;
-    private PageRequest pageRequest;
+    private Pageable pageable;
 
     @BeforeEach
     public void setUp() {
-        pageRequest = PageRequest.of(0,20, Sort.by(Sort.Direction.ASC,"name"));
+        pageable = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
     }
 
     @Test
@@ -31,9 +32,9 @@ class CategoryServiceImplTest {
         // given
 
         // when
-        classUnderTest.getAll(pageRequest);
+        classUnderTest.getAll(pageable);
 
         // then
-        verify(categoryRepository).findAll(pageRequest);
+        verify(categoryRepository).findAll(pageable);
     }
 }
