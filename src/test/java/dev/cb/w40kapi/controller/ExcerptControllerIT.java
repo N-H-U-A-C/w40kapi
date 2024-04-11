@@ -29,8 +29,7 @@ public class ExcerptControllerIT {
                     "author": {"id": 5, "name": "Victor Hugo",
                         "titles": [{"id": 2, "name": "Lord Commander"}]
                     },
-                    "categories": [{"id": 1, "name": "Thought for the day"}],
-                    "sources": [{"id": 5, "title": "Dummy Book", "publication": "1950"}]
+                    "categories": [{"id": 1, "name": "Thought for the day"}]
                 }
                 """;
 
