@@ -34,7 +34,7 @@ public class Excerpt {
     @JoinColumn(name = "ID_AUTHOR")
     private Author author;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "CATEGORIZE",
     joinColumns = @JoinColumn(name = "ID_EXCERPT"),
     inverseJoinColumns = @JoinColumn(name = "ID_CATEGORY"))
