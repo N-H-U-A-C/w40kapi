@@ -90,16 +90,8 @@ public class ExcerptSource {
             return excerptId;
         }
 
-        public void setExcerptId(Integer excerptId) {
-            this.excerptId = excerptId;
-        }
-
         public Integer getSourceId() {
             return sourceId;
-        }
-
-        public void setSourceId(Integer sourceId) {
-            this.sourceId = sourceId;
         }
 
         @Override
