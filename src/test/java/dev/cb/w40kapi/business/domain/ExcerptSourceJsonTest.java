@@ -38,11 +38,11 @@ public class ExcerptSourceJsonTest {
                         "excerptId": 3,
                         "sourceId": 6
                     },
-                    "page" : 33,
-                    "excerpt" : {
+                    "page": 33,
+                    "excerpt": {
                         "id": 3,
-                        "title" : "Title",
-                        "content" : "Content",
+                        "title": "Title",
+                        "content": "Content",
                         "context": "Context",
                         "author": null,
                         "categories": []
@@ -68,13 +68,13 @@ public class ExcerptSourceJsonTest {
         excerptSourceArrayJson = """
                 [
                     {"id": {"excerptId": 3, "sourceId": 6},
-                    "page" : 33,
-                    "excerpt" : {"id": 3, "title" : "Title", "content" : "Content", "context": "Context", "author": null, "categories": []},
+                    "page": 33,
+                    "excerpt": {"id": 3, "title": "Title", "content": "Content", "context": "Context", "author": null, "categories": []},
                     "source": {"id": 33, "title": "Test", "publication": "2011"}
                     },
                     {"id": {"excerptId": 4, "sourceId": 8},
-                    "page" : 50,
-                    "excerpt" : {"id": 6, "title" : "This is a title", "content" : "This is a content", "context": "This is a context", "author": null, "categories": []},
+                    "page": 50,
+                    "excerpt": {"id": 6, "title": "This is a title", "content": "This is a content", "context": "This is a context", "author": null, "categories": []},
                     "source": {"id": 5, "title": "Rulebook", "publication": "1998"}
                     }
                 ]
