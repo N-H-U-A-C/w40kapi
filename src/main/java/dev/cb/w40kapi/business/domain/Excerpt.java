@@ -67,6 +67,23 @@ public class Excerpt {
         this.context = context;
     }
 
+    /**
+     * Creates a new {@code Excerpt}
+     *
+     * @param id        the id used for the initialization.
+     * @param title     the title used for the initialization.
+     * @param content   the content used for the initialization.
+     * @param context   the context used for the initialization.
+     * @param author    the author used for the initialization.
+     */
+    public Excerpt(Integer id, String title, String content, String context, Author author) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.context = context;
+        this.author = author;
+    }
+
     public Integer getId() {
         return id;
     }
