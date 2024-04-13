@@ -18,7 +18,7 @@ class SourceControllerIT {
     TestRestTemplate restTemplate;
 
     @Test
-    public void shouldReturnFirstPageofSourcesSortedByAscTitle() throws JSONException {
+    public void shouldReturnFirstSliceOfSourcesSortedByAscTitle() throws JSONException {
         // given
         String expected = """
                 [

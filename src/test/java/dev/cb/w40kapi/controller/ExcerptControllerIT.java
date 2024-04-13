@@ -43,7 +43,7 @@ public class ExcerptControllerIT {
     }
 
     @Test
-    public void shouldNotReturnExcerptByIdIfDoesntExist() {
+    public void shouldNotReturnExcerptByIdIfDoesNotExist() {
         // given
 
         // when
