@@ -26,6 +26,12 @@ public class ExcerptSource {
     protected ExcerptSource() {
     }
 
+    public ExcerptSource(ExcerptSourceId id, Short page, Source source) {
+        this.id = id;
+        this.page = page;
+        this.source = source;
+    }
+
     public ExcerptSource(ExcerptSourceId id, Short page, Excerpt excerpt, Source source) {
         this.id = id;
         this.page = page;
