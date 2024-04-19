@@ -1,5 +1,6 @@
 package dev.cb.w40kapi.business.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class Excerpt {
     private List<Category> categories = new ArrayList<>();
 
     @OneToMany(mappedBy = "excerpt")
+    @JsonManagedReference
     private List<ExcerptSource> excerptSources = new ArrayList<>();
 
     /**

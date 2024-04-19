@@ -1,5 +1,6 @@
 package dev.cb.w40kapi.business.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -16,6 +17,7 @@ public class ExcerptSource {
     @ManyToOne
     @JoinColumn(name = "ID_EXCERPT")
     @MapsId("excerptId")
+    @JsonBackReference
     private Excerpt excerpt;
 
     @ManyToOne
