@@ -30,7 +30,6 @@ public class ExcerptSourceJsonTest {
         excerptSource = new ExcerptSource(
                 new ExcerptSource.ExcerptSourceId(3, 6),
                 (short) 33,
-                new Excerpt(3, "Title", "Content", "Context"),
                 new Source(33, "Test", Year.of(2011)));
         excerptSourceJson = """
                 {
@@ -39,14 +38,6 @@ public class ExcerptSourceJsonTest {
                         "sourceId": 6
                     },
                     "page": 33,
-                    "excerpt": {
-                        "id": 3,
-                        "title": "Title",
-                        "content": "Content",
-                        "context": "Context",
-                        "author": null,
-                        "categories": []
-                    },
                     "source": {
                         "id": 33,
                         "title": "Test",
@@ -58,23 +49,19 @@ public class ExcerptSourceJsonTest {
                 new ExcerptSource(
                         new ExcerptSource.ExcerptSourceId(3, 6),
                         (short) 33,
-                        new Excerpt(3, "Title", "Content", "Context"),
                         new Source(33, "Test", Year.of(2011))),
                 new ExcerptSource(
                         new ExcerptSource.ExcerptSourceId(4, 8),
                         (short) 50,
-                        new Excerpt(6, "This is a title", "This is a content", "This is a context"),
                         new Source(5, "Rulebook", Year.of(1998))));
         excerptSourceArrayJson = """
                 [
                     {"id": {"excerptId": 3, "sourceId": 6},
                     "page": 33,
-                    "excerpt": {"id": 3, "title": "Title", "content": "Content", "context": "Context", "author": null, "categories": []},
                     "source": {"id": 33, "title": "Test", "publication": "2011"}
                     },
                     {"id": {"excerptId": 4, "sourceId": 8},
                     "page": 50,
-                    "excerpt": {"id": 6, "title": "This is a title", "content": "This is a content", "context": "This is a context", "author": null, "categories": []},
                     "source": {"id": 5, "title": "Rulebook", "publication": "1998"}
                     }
                 ]
