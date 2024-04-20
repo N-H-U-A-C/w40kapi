@@ -9,7 +9,7 @@ import java.time.Year;
 import java.util.Objects;
 
 /**
- * Class that models the source an {@code dev.cb.w40kapi.business.domain.Excerpt} can have. A category has an id, a title and can have a publication's year.
+ * Class that models the source an {@code dev.cb.w40kapi.business.domain.Excerpt} can have. A source has an id, a title and can have a publication's year.
  * *
  * * @author N.H.U.A.C
  * * @version 1.0

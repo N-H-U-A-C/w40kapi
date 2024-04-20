@@ -18,7 +18,7 @@ public class AuthorControllerIT {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void shouldReturnFirstPageOf20AuthorsSortedByAscName() throws JSONException {
+    public void shouldReturnFirstSliceOf20AuthorsSortedByAscName() throws JSONException {
         // given
         String expected = """
                 [

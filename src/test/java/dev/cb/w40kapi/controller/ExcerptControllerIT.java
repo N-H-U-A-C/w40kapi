@@ -30,7 +30,11 @@ public class ExcerptControllerIT {
                         "titles": [{"id": 2, "name": "Lord Commander"}]
                     },
                     "categories": [{"id": 1, "name": "Thought for the day"}],
-                    "sources": [{"id": 5, "title": "Dummy Book", "publication": "1950"}]
+                    "excerptSources": [{
+                        "id": {"excerptId": 6, "sourceId": 5},
+                        "page" : 99,
+                        "source": {"id": 5, "title": "Dummy Book", "publication": "1950"}
+                    }]
                 }
                 """;
 
@@ -44,7 +48,7 @@ public class ExcerptControllerIT {
     }
 
     @Test
-    public void shouldNotReturnExcerptByIdIfDoesntExist() {
+    public void shouldNotReturnExcerptByIdIfDoesNotExist() {
         // given
 
         // when
