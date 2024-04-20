@@ -39,7 +39,7 @@ class SourceControllerTest {
 
     @BeforeEach
     public void setUp() {
-        defaultPageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "title"));
+        defaultPageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
         slice = new PageImpl<>(List.of(
                 new Source(33, "Test", Year.of(2011)),
                 new Source(5, "Rulebook", Year.of(1998))));
@@ -58,7 +58,7 @@ class SourceControllerTest {
     }
 
     @Test
-    public void pageRequestShouldBeFirstPageOf20SourcesSortedByAscTitle() throws Exception {
+    public void pageRequestShouldBeFirstPageOf20SourcesSortedByAscName() throws Exception {
         // given
         when(sourceService.getAll(defaultPageRequest)).thenReturn(slice);
 
@@ -74,7 +74,7 @@ class SourceControllerTest {
     @Test
     public void pageRequestShouldBeSecondPageOfSources() throws Exception {
         // given
-        PageRequest secondPage = PageRequest.of(1, 20, Sort.by(Sort.Direction.ASC, "title"));
+        PageRequest secondPage = PageRequest.of(1, 20, Sort.by(Sort.Direction.ASC, "name"));
         when(sourceService.getAll(secondPage)).thenReturn(slice);
 
         // when
@@ -89,7 +89,7 @@ class SourceControllerTest {
     @Test
     public void pageRequestShouldBePageOf5Sources() throws Exception {
         // given
-        PageRequest pageOfFiveSources = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "title"));
+        PageRequest pageOfFiveSources = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "name"));
         when(sourceService.getAll(pageOfFiveSources)).thenReturn(slice);
 
         // when
@@ -102,17 +102,17 @@ class SourceControllerTest {
     }
 
     @Test
-    public void pageRequestShouldBePageOfSourcesSortedByDescTitle() throws Exception {
+    public void pageRequestShouldBePageOfSourcesSortedByDescName() throws Exception {
         // given
-        PageRequest pageSortedByDescTitle = PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "title"));
-        when(sourceService.getAll(pageSortedByDescTitle)).thenReturn(slice);
+        PageRequest pageSortedByDescName = PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "name"));
+        when(sourceService.getAll(pageSortedByDescName)).thenReturn(slice);
 
         // when
-        mockMvc.perform(get("/sources?sort=title,desc"));
+        mockMvc.perform(get("/sources?sort=name,desc"));
 
         // then
         verify(sourceService).getAll(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
-        assertThat(usedPageRequest).isEqualTo(pageSortedByDescTitle);
+        assertThat(usedPageRequest).isEqualTo(pageSortedByDescName);
     }
 }

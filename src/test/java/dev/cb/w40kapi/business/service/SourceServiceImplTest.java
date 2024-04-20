@@ -24,7 +24,7 @@ public class SourceServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        pageable = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "title"));
+        pageable = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
     }
 
     @Test

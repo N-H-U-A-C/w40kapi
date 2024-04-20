@@ -40,7 +40,7 @@ public class ExcerptSourceJsonTest {
                     "page": 33,
                     "source": {
                         "id": 33,
-                        "title": "Test",
+                        "name": "Test",
                         "publication": "2011"
                     }
                 }
@@ -58,11 +58,11 @@ public class ExcerptSourceJsonTest {
                 [
                     {"id": {"excerptId": 3, "sourceId": 6},
                     "page": 33,
-                    "source": {"id": 33, "title": "Test", "publication": "2011"}
+                    "source": {"id": 33, "name": "Test", "publication": "2011"}
                     },
                     {"id": {"excerptId": 4, "sourceId": 8},
                     "page": 50,
-                    "source": {"id": 5, "title": "Rulebook", "publication": "1998"}
+                    "source": {"id": 5, "name": "Rulebook", "publication": "1998"}
                     }
                 ]
                 """;

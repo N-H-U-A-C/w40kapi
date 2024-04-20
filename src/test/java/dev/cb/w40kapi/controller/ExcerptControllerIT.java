@@ -33,7 +33,7 @@ public class ExcerptControllerIT {
                     "excerptSources": [{
                         "id": {"excerptId": 6, "sourceId": 5},
                         "page" : 99,
-                        "source": {"id": 5, "title": "Dummy Book", "publication": "1950"}
+                        "source": {"id": 5, "name": "Dummy Book", "publication": "1950"}
                     }]
                 }
                 """;
