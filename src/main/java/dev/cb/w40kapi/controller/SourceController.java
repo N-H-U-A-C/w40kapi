@@ -37,7 +37,7 @@ public class SourceController {
 
     /**
      * {@code GET "/"}
-     * Returns a {@code List} of {@link Source}. By default, creates the {@code List} from the first {@link Slice} of 20 {@code Source} sorted by ascending title.
+     * Returns a {@code List} of {@link Source}. By default, creates the {@code List} from the first {@link Slice} of 20 {@code Source} sorted by ascending name.
      *
      * @param pageable the url parameters, can modify the slice number, the slice size and the slice sorting.
      * @return a {@link ResponseEntity} with status code {@code 200 (OK)} and with body a {@code List} of {@code Source}.
@@ -47,7 +47,7 @@ public class SourceController {
         PageRequest pageRequest = PageRequest.of(
                 pageable.getPageNumber(),
                 pageable.getPageSize(),
-                pageable.getSortOr(Sort.by(Sort.Direction.ASC, "title")));
+                pageable.getSortOr(Sort.by(Sort.Direction.ASC, "name")));
 
         Slice<Source> slice = sourceService.getAll(pageRequest);
 
