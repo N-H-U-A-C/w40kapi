@@ -23,7 +23,7 @@ public class ExcerptControllerIT {
         String expected = """
                 {
                     "id": 6,
-                    "title": "This is a title test",
+                    "header": "This is a header test",
                     "content": "Dummy content",
                     "context": "This is a context test",
                     "author": {"id": 5, "name": "Victor Hugo",
