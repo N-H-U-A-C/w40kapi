@@ -22,7 +22,7 @@ public class Author {
     @Column(name = "NAME_AUTHOR")
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     @JoinTable(name = "DESIGNATE",
             joinColumns = @JoinColumn(name = "ID_AUTHOR"),
             inverseJoinColumns = @JoinColumn(name = "ID_TITLE"))
