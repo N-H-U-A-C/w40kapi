@@ -22,8 +22,8 @@ INSERT INTO excerpts(id_excerpt, content, id_author) VALUES (1, 'Mankind stands 
 INSERT INTO excerpts(id_excerpt, content) VALUES (2, 'May the Emperor''s Wrath forever cleanse our souls');
 INSERT INTO excerpts(id_excerpt, content, context, id_author) VALUES (3, 'There is a terrible darkness descending upon the galaxy, and we shall not see it end in our lifetimes.', 'at the Conclave of Har', 2);
 INSERT INTO excerpts(id_excerpt, content) VALUES (4, 'Hope is the first step on the road to disappointment.');
-INSERT INTO excerpts(id_excerpt, title_excerpt, content) VALUES (5, 'Thought For The Day', 'If a job''s worth doing it''s worth dying for!');
-INSERT INTO excerpts(id_excerpt, title_excerpt, content, context, id_author) VALUES (6, 'This is a title test', 'Dummy content', 'This is a context test', 5);
+INSERT INTO excerpts(id_excerpt, header, content) VALUES (5, 'Thought For The Day', 'If a job''s worth doing it''s worth dying for!');
+INSERT INTO excerpts(id_excerpt, header, content, context, id_author) VALUES (6, 'This is a header test', 'Dummy content', 'This is a context test', 5);
 
 
 

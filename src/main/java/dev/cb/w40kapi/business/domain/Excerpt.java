@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Class that models an excerpt. An excerpt has an id, a content and at least one {@code ExcerptSource}, and can have a title, a context, an {@code Author}, multiple {@code Category} and others {@code ExcerptSource}.
+ * Class that models an excerpt. An excerpt has an id, a content and at least one {@code ExcerptSource}, and can have a header, a context, an {@code Author}, multiple {@code Category} and others {@code ExcerptSource}.
  *
  * @author N.H.U.A.C
  * @version 1.0
@@ -24,8 +24,8 @@ public class Excerpt {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_EXCERPT")
     private Integer id;
-    @Column(name = "TITLE_EXCERPT")
-    private String title;
+    @Column(name = "HEADER")
+    private String header;
     @Column(name = "CONTENT")
     private String content;
     @Column(name = "CONTEXT")
@@ -55,13 +55,13 @@ public class Excerpt {
      * Creates a new {@code Excerpt}
      *
      * @param id      the id used for the initialization.
-     * @param title   the title used for the initialization.
+     * @param header  the header used for the initialization.
      * @param content the content used for the initialization.
      * @param context the context used for the initialization.
      */
-    public Excerpt(Integer id, String title, String content, String context) {
+    public Excerpt(Integer id, String header, String content, String context) {
         this.id = id;
-        this.title = title;
+        this.header = header;
         this.content = content;
         this.context = context;
     }
@@ -70,14 +70,14 @@ public class Excerpt {
      * Creates a new {@code Excerpt}
      *
      * @param id      the id used for the initialization.
-     * @param title   the title used for the initialization.
+     * @param header  the header used for the initialization.
      * @param content the content used for the initialization.
      * @param context the context used for the initialization.
      * @param author  the author used for the initialization.
      */
-    public Excerpt(Integer id, String title, String content, String context, Author author) {
+    public Excerpt(Integer id, String header, String content, String context, Author author) {
         this.id = id;
-        this.title = title;
+        this.header = header;
         this.content = content;
         this.context = context;
         this.author = author;
@@ -87,15 +87,15 @@ public class Excerpt {
      * Creates a new {@code Excerpt}
      *
      * @param id         the id used for the initialization.
-     * @param title      the title used for the initialization.
+     * @param header     the header used for the initialization.
      * @param content    the content used for the initialization.
      * @param context    the context used for the initialization.
      * @param author     the author used for the initialization.
      * @param categories the categories used for the initialization.
      */
-    public Excerpt(Integer id, String title, String content, String context, Author author, List<Category> categories) {
+    public Excerpt(Integer id, String header, String content, String context, Author author, List<Category> categories) {
         this.id = id;
-        this.title = title;
+        this.header = header;
         this.content = content;
         this.context = context;
         this.author = author;
@@ -106,16 +106,16 @@ public class Excerpt {
      * Creates a new {@code Excerpt}
      *
      * @param id             the id used for the initialization.
-     * @param title          the title used for the initialization.
+     * @param header         the header used for the initialization.
      * @param content        the content used for the initialization.
      * @param context        the context used for the initialization.
      * @param author         the author used for the initialization.
      * @param categories     the categories used for the initialization.
      * @param excerptSources the excerptSources used for the initialization.
      */
-    public Excerpt(Integer id, String title, String content, String context, Author author, List<Category> categories, List<ExcerptSource> excerptSources) {
+    public Excerpt(Integer id, String header, String content, String context, Author author, List<Category> categories, List<ExcerptSource> excerptSources) {
         this.id = id;
-        this.title = title;
+        this.header = header;
         this.content = content;
         this.context = context;
         this.author = author;
@@ -127,8 +127,8 @@ public class Excerpt {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getHeader() {
+        return header;
     }
 
     public String getContent() {
@@ -156,19 +156,19 @@ public class Excerpt {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Excerpt excerpt = (Excerpt) o;
-        return Objects.equals(getId(), excerpt.getId()) && Objects.equals(getTitle(), excerpt.getTitle()) && Objects.equals(getContent(), excerpt.getContent()) && Objects.equals(getContext(), excerpt.getContext()) && Objects.equals(getAuthor(), excerpt.getAuthor()) && Objects.equals(getCategories(), excerpt.getCategories()) && Objects.equals(getExcerptSources(), excerpt.getExcerptSources());
+        return Objects.equals(getId(), excerpt.getId()) && Objects.equals(getHeader(), excerpt.getHeader()) && Objects.equals(getContent(), excerpt.getContent()) && Objects.equals(getContext(), excerpt.getContext()) && Objects.equals(getAuthor(), excerpt.getAuthor()) && Objects.equals(getCategories(), excerpt.getCategories()) && Objects.equals(getExcerptSources(), excerpt.getExcerptSources());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getTitle(), getContent(), getContext(), getAuthor(), getCategories(), getExcerptSources());
+        return Objects.hash(getId(), getHeader(), getContent(), getContext(), getAuthor(), getCategories(), getExcerptSources());
     }
 
     @Override
     public String toString() {
         return "Excerpt{" +
                "id=" + id +
-               ", title='" + title + '\'' +
+               ", header='" + header + '\'' +
                ", content='" + content + '\'' +
                ", context='" + context + '\'' +
                ", author=" + author +
