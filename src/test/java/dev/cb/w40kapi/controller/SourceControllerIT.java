@@ -18,15 +18,15 @@ class SourceControllerIT {
     TestRestTemplate restTemplate;
 
     @Test
-    public void shouldReturnFirstSliceOfSourcesSortedByAscTitle() throws JSONException {
+    public void shouldReturnFirstSliceOfSourcesSortedByAscName() throws JSONException {
         // given
         String expected = """
                 [
-                    {"id": 4, "title": "Codex", "publication": "1998"},
-                    {"id": 5, "title": "Dummy Book", "publication": "1950"},
-                    {"id": 1, "title": "Rulebook (3rd Ed.)", "publication": "1998"},
-                    {"id": 2, "title": "Rulebook (4th Ed.)", "publication": "2004"},
-                    {"id": 3, "title": "Rulebook (5th Ed.)", "publication": "2008"}
+                    {"id": 4, "name": "Codex", "publication": "1998"},
+                    {"id": 5, "name": "Dummy Book", "publication": "1950"},
+                    {"id": 1, "name": "Rulebook (3rd Ed.)", "publication": "1998"},
+                    {"id": 2, "name": "Rulebook (4th Ed.)", "publication": "2004"},
+                    {"id": 3, "name": "Rulebook (5th Ed.)", "publication": "2008"}
                 ]
                 """;
 

@@ -25,11 +25,11 @@ public class ExcerptJsonTest {
 
     @BeforeEach
     public void setUp() {
-        excerpt = new Excerpt(3, "Title", "Content", "Context");
+        excerpt = new Excerpt(3, "Header", "Content", "Context");
         excerptJson = """
                 {
                     "id": 3,
-                    "title" : "Title",
+                    "header" : "Header",
                     "content" : "Content",
                     "context": "Context",
                     "author": null,
@@ -38,12 +38,12 @@ public class ExcerptJsonTest {
                 }
                 """;
         excerptArray = Arrays.array(
-                new Excerpt(3, "Title", "Content", "Context"),
-                new Excerpt(6, "This is a title", "This is a content", "This is a context"));
+                new Excerpt(3, "Header", "Content", "Context"),
+                new Excerpt(6, "This is a header", "This is a content", "This is a context"));
         excerptArrayJson = """
                 [
-                    {"id": 3, "title" : "Title", "content" : "Content", "context": "Context", "author": null, "categories": [], "excerptSources": []},
-                    {"id": 6, "title" : "This is a title", "content" : "This is a content", "context": "This is a context", "author": null, "categories": [], "excerptSources": []}
+                    {"id": 3, "header" : "Header", "content" : "Content", "context": "Context", "author": null, "categories": [], "excerptSources": []},
+                    {"id": 6, "header" : "This is a header", "content" : "This is a content", "context": "This is a context", "author": null, "categories": [], "excerptSources": []}
                 ]
                 """;
     }

@@ -14,13 +14,13 @@ import java.util.Objects;
  * @version 1.0
  */
 @Entity
-@Table(name = "CATEGORIES")
+@Table(name = "categories")
 public class Category {
 
     @Id
-    @Column(name = "ID_CATEGORY")
+    @Column(name = "id_category")
     private Integer id;
-    @Column(name = "NAME_CATEGORY")
+    @Column(name = "name_category")
     private String name;
 
     /**

@@ -11,14 +11,14 @@ import java.util.Objects;
  * @version 1.0
  */
 @Entity
-@Table(name = "TITLES")
+@Table(name = "titles")
 public class Title {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_TITLE")
+    @Column(name = "id_title")
     private Integer id;
-    @Column(name = "NAME_TITLE")
+    @Column(name = "name_title")
     private String name;
 
     /**

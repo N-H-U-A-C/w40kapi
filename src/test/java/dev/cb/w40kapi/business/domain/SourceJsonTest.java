@@ -31,7 +31,7 @@ public class SourceJsonTest {
         sourceJson = """
                 {
                     "id": 33,
-                    "title": "Test",
+                    "name": "Test",
                     "publication": "2011"
                 }
                 """;
@@ -39,8 +39,8 @@ public class SourceJsonTest {
                 new Source(5, "Rulebook", Year.of(1998)));
         sourceArrayJson = """
                 [
-                 {"id": 33, "title": "Test", "publication" : "2011"},   
-                 {"id": 5, "title": "Rulebook", "publication" : "1998"}   
+                 {"id": 33, "name": "Test", "publication" : "2011"},   
+                 {"id": 5, "name": "Rulebook", "publication" : "1998"}   
                 ]
                 """;
     }

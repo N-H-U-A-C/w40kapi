@@ -22,8 +22,8 @@ INSERT INTO excerpts(id_excerpt, content, id_author) VALUES (1, 'Mankind stands 
 INSERT INTO excerpts(id_excerpt, content) VALUES (2, 'May the Emperor''s Wrath forever cleanse our souls');
 INSERT INTO excerpts(id_excerpt, content, context, id_author) VALUES (3, 'There is a terrible darkness descending upon the galaxy, and we shall not see it end in our lifetimes.', 'at the Conclave of Har', 2);
 INSERT INTO excerpts(id_excerpt, content) VALUES (4, 'Hope is the first step on the road to disappointment.');
-INSERT INTO excerpts(id_excerpt, title_excerpt, content) VALUES (5, 'Thought For The Day', 'If a job''s worth doing it''s worth dying for!');
-INSERT INTO excerpts(id_excerpt, title_excerpt, content, context, id_author) VALUES (6, 'This is a title test', 'Dummy content', 'This is a context test', 5);
+INSERT INTO excerpts(id_excerpt, header, content) VALUES (5, 'Thought For The Day', 'If a job''s worth doing it''s worth dying for!');
+INSERT INTO excerpts(id_excerpt, header, content, context, id_author) VALUES (6, 'This is a header test', 'Dummy content', 'This is a context test', 5);
 
 
 
@@ -57,11 +57,11 @@ INSERT INTO categories(id_category, name_category) VALUES (21, '21th');
 ------------------------------------------------------------
 -- Table: sources
 ------------------------------------------------------------
-INSERT INTO sources(id_source, title_source, publication) VALUES (1, 'Rulebook (3rd Ed.)', 1998);
-INSERT INTO sources(id_source, title_source, publication) VALUES (2, 'Rulebook (4th Ed.)', 2004);
-INSERT INTO sources(id_source, title_source, publication) VALUES (3, 'Rulebook (5th Ed.)', 2008);
-INSERT INTO sources(id_source, title_source, publication) VALUES (4, 'Codex', 1998);
-INSERT INTO sources(id_source, title_source, publication) VALUES (5, 'Dummy Book', 1950);
+INSERT INTO sources(id_source, name_source, publication) VALUES (1, 'Rulebook (3rd Ed.)', 1998);
+INSERT INTO sources(id_source, name_source, publication) VALUES (2, 'Rulebook (4th Ed.)', 2004);
+INSERT INTO sources(id_source, name_source, publication) VALUES (3, 'Rulebook (5th Ed.)', 2008);
+INSERT INTO sources(id_source, name_source, publication) VALUES (4, 'Codex', 1998);
+INSERT INTO sources(id_source, name_source, publication) VALUES (5, 'Dummy Book', 1950);
 
 
 
