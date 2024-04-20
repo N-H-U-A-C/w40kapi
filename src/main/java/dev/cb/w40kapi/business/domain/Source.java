@@ -15,15 +15,15 @@ import java.util.Objects;
  * * @version 1.0
  */
 @Entity
-@Table(name = "SOURCES")
+@Table(name = "sources")
 public class Source {
 
     @Id
-    @Column(name = "ID_SOURCE")
+    @Column(name = "id_source")
     private Integer id;
-    @Column(name = "NAME_SOURCE")
+    @Column(name = "name_source")
     private String name;
-    @Column(name = "PUBLICATION")
+    @Column(name = "publication")
     private Year publication;
 
     /**

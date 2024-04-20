@@ -13,19 +13,19 @@ import java.util.Objects;
  * @version 1.0
  */
 @Entity
-@Table(name = "AUTHORS")
+@Table(name = "authors")
 public class Author {
 
     @Id
-    @Column(name = "ID_AUTHOR")
+    @Column(name = "id_author")
     private Integer id;
-    @Column(name = "NAME_AUTHOR")
+    @Column(name = "name_author")
     private String name;
 
     @ManyToMany
-    @JoinTable(name = "DESIGNATE",
-            joinColumns = @JoinColumn(name = "ID_AUTHOR"),
-            inverseJoinColumns = @JoinColumn(name = "ID_TITLE"))
+    @JoinTable(name = "designate",
+            joinColumns = @JoinColumn(name = "id_author"),
+            inverseJoinColumns = @JoinColumn(name = "id_title"))
     private List<Title> titles = new ArrayList<>();
 
     /**

@@ -17,28 +17,28 @@ import java.util.Objects;
  * @see ExcerptSource
  */
 @Entity
-@Table(name = "EXCERPTS")
+@Table(name = "excerpts")
 public class Excerpt {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_EXCERPT")
+    @Column(name = "id_excerpt")
     private Integer id;
-    @Column(name = "HEADER")
+    @Column(name = "header")
     private String header;
-    @Column(name = "CONTENT")
+    @Column(name = "content")
     private String content;
-    @Column(name = "CONTEXT")
+    @Column(name = "context")
     private String context;
 
     @ManyToOne
-    @JoinColumn(name = "ID_AUTHOR")
+    @JoinColumn(name = "id_author")
     private Author author;
 
     @ManyToMany
-    @JoinTable(name = "CATEGORIZE",
-            joinColumns = @JoinColumn(name = "ID_EXCERPT"),
-            inverseJoinColumns = @JoinColumn(name = "ID_CATEGORY"))
+    @JoinTable(name = "categorize",
+            joinColumns = @JoinColumn(name = "id_excerpt"),
+            inverseJoinColumns = @JoinColumn(name = "id_category"))
     private List<Category> categories = new ArrayList<>();
 
     @OneToMany(mappedBy = "excerpt")

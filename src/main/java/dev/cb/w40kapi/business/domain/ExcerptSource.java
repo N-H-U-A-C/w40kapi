@@ -16,7 +16,7 @@ import java.util.Objects;
  * @see Source
  */
 @Entity
-@Table(name = "INCLUDE")
+@Table(name = "include")
 public class ExcerptSource {
 
     @EmbeddedId
@@ -24,13 +24,13 @@ public class ExcerptSource {
     private Short page;
 
     @ManyToOne
-    @JoinColumn(name = "ID_EXCERPT")
+    @JoinColumn(name = "id_excerpt")
     @MapsId("excerptId")
     @JsonBackReference
     private Excerpt excerpt;
 
     @ManyToOne
-    @JoinColumn(name = "ID_SOURCE")
+    @JoinColumn(name = "id_source")
     @MapsId("sourceId")
     private Source source;
 
