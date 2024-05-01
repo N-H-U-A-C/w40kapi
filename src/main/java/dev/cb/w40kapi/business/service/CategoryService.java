@@ -14,11 +14,10 @@ import org.springframework.data.domain.Slice;
 public interface CategoryService {
 
     /**
-     * Returns a {@link Slice} of {@link Category} meeting the paging restriction provided in the {@link Pageable} object.
+     * Returns a {@link Slice} of {@link CategoryDto} meeting the paging restriction provided in the {@link Pageable} object.
      *
      * @param pageable the {@code Pageable} to request a sliced result.
-     * @return a {@code Slice} of {@code Category}.
+     * @return a {@code Slice} of {@code CategoryDto}.
      */
     Slice<CategoryDto> getAllCategoryDto(Pageable pageable);
-
 }
