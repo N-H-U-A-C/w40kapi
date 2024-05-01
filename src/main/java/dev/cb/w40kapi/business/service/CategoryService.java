@@ -1,6 +1,7 @@
 package dev.cb.w40kapi.business.service;
 
 import dev.cb.w40kapi.business.domain.Category;
+import dev.cb.w40kapi.business.service.dto.CategoryDto;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 
@@ -18,6 +19,6 @@ public interface CategoryService {
      * @param pageable the {@code Pageable} to request a sliced result.
      * @return a {@code Slice} of {@code Category}.
      */
-    Slice<Category> getAll(Pageable pageable);
+    Slice<CategoryDto> getAllCategoryDto(Pageable pageable);
 
 }
