@@ -2,6 +2,7 @@ package dev.cb.w40kapi.controller;
 
 import dev.cb.w40kapi.business.domain.Category;
 import dev.cb.w40kapi.business.service.CategoryService;
+import dev.cb.w40kapi.business.service.dto.CategoryDto;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -37,19 +38,19 @@ public class CategoryController {
 
     /**
      * {@code GET "/"}
-     * Returns a {@code List} of {@link Category}. By default, creates the {@code List} from the first {@link Slice} of 20 {@code Category} sorted by ascending name.
+     * Returns a {@code List} of {@link CategoryDto}. By default, creates the {@code List} from the first {@link Slice} of 20 {@code CategoryDto} sorted by ascending name.
      *
      * @param pageable the url parameters, can modify the slice number, the slice size and the slice sorting.
-     * @return a {@link ResponseEntity} with status code {@code 200 (OK)} and with body a {@code List} of {@code Category}.
+     * @return a {@link ResponseEntity} with status code {@code 200 (OK)} and with body a {@code List} of {@code CategoryDto}.
      */
     @GetMapping()
-    public ResponseEntity<List<Category>> getAll(Pageable pageable) {
+    public ResponseEntity<List<CategoryDto>> getAllCategoryDto(Pageable pageable) {
         PageRequest pageRequest = PageRequest.of(
                 pageable.getPageNumber(),
                 pageable.getPageSize(),
                 pageable.getSortOr(Sort.by(Sort.Direction.ASC, "name"))
         );
-        Slice<Category> slice = categoryService.getAll(pageRequest);
+        Slice<CategoryDto> slice = categoryService.getAllCategoryDto(pageRequest);
 
         return ResponseEntity.ok(slice.getContent());
     }
