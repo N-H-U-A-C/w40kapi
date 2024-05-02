@@ -28,13 +28,13 @@ public class SourceServiceImplTest {
     }
 
     @Test
-    public void shouldCallFindAllOfSourceRepository() {
+    public void shouldCallFindAllSourceDtoOfSourceRepository() {
         // given
 
         // when
-        classUnderTest.getAll(pageable);
+        classUnderTest.getAllSourceDto(pageable);
 
         // then
-        verify(sourceRepository).findAll(pageable);
+        verify(sourceRepository).findAllSourceDto(pageable);
     }
 }
