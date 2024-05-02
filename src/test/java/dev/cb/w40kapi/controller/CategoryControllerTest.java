@@ -1,7 +1,7 @@
 package dev.cb.w40kapi.controller;
 
-import dev.cb.w40kapi.business.domain.Category;
 import dev.cb.w40kapi.business.service.CategoryService;
+import dev.cb.w40kapi.business.service.dto.CategoryDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -34,83 +34,83 @@ class CategoryControllerTest {
     private PageRequest defaultPageRequest;
     @Captor
     private ArgumentCaptor<PageRequest> captor;
-    private Slice<Category> slice;
+    private Slice<CategoryDto> slice;
 
     @BeforeEach
     public void setUp() {
         defaultPageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
         slice = new PageImpl<>(List.of(
-                new Category(55, "Test"),
-                new Category(1, "Ok")));
+                new CategoryDto(55, "Test"),
+                new CategoryDto(1, "Ok")));
     }
 
     @Test
-    public void shouldCallGetAllOfCategoryService() {
+    public void shouldCallGetAllCategoryDtoOfCategoryService() {
         // given
-        when(categoryService.getAll(defaultPageRequest)).thenReturn(slice);
+        when(categoryService.getAllCategoryDto(defaultPageRequest)).thenReturn(slice);
 
         // when
-        classUnderTest.getAll(defaultPageRequest);
+        classUnderTest.getAllCategoryDto(defaultPageRequest);
 
         // then
-        verify(categoryService).getAll(defaultPageRequest);
+        verify(categoryService).getAllCategoryDto(defaultPageRequest);
     }
 
     @Test
-    public void pageRequestShouldBeFirstPageOf20CategoriesSortedByAscName() throws Exception {
+    public void pageRequestShouldBeFirstPageOf20CategoriesDtoSortedByAscName() throws Exception {
         // given
-        when(categoryService.getAll(defaultPageRequest)).thenReturn(slice);
+        when(categoryService.getAllCategoryDto(defaultPageRequest)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/categories"));
 
         // then
-        verify(categoryService).getAll(captor.capture());
+        verify(categoryService).getAllCategoryDto(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(defaultPageRequest);
     }
 
     @Test
-    public void pageRequestShouldBeSecondPageOfCategories() throws Exception {
+    public void pageRequestShouldBeSecondPageOfCategoriesDto() throws Exception {
         // given
         PageRequest secondPage = PageRequest.of(1, 20, Sort.by(Sort.Direction.ASC, "name"));
-        when(categoryService.getAll(secondPage)).thenReturn(slice);
+        when(categoryService.getAllCategoryDto(secondPage)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/categories?page=1"));
 
         // then
-        verify(categoryService).getAll(captor.capture());
+        verify(categoryService).getAllCategoryDto(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(secondPage);
     }
 
     @Test
-    public void pageRequestShouldBePageOf5Categories() throws Exception {
+    public void pageRequestShouldBePageOf5CategoriesDto() throws Exception {
         // given
         PageRequest pageOfFiveCategories = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "name"));
-        when(categoryService.getAll(pageOfFiveCategories)).thenReturn(slice);
+        when(categoryService.getAllCategoryDto(pageOfFiveCategories)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/categories?size=5"));
 
         // then
-        verify(categoryService).getAll(captor.capture());
+        verify(categoryService).getAllCategoryDto(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(pageOfFiveCategories);
     }
 
     @Test
-    public void pageRequestShouldBePageOfCategoriesSortedByDescName() throws Exception {
+    public void pageRequestShouldBePageOfCategoriesDtoSortedByDescName() throws Exception {
         // given
         PageRequest pageSortedByDescName = PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "name"));
-        when(categoryService.getAll(pageSortedByDescName)).thenReturn(slice);
+        when(categoryService.getAllCategoryDto(pageSortedByDescName)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/categories?sort=name,desc"));
 
         // then
-        verify(categoryService).getAll(captor.capture());
+        verify(categoryService).getAllCategoryDto(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(pageSortedByDescName);
     }

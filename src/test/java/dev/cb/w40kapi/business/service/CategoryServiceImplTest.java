@@ -28,13 +28,13 @@ class CategoryServiceImplTest {
     }
 
     @Test
-    public void shouldCallFindAllOfCategoryRepository() {
+    public void shouldCallFindAllCategoryDtoOfCategoryRepository() {
         // given
 
         // when
-        classUnderTest.getAll(pageable);
+        classUnderTest.getAllCategoryDto(pageable);
 
         // then
-        verify(categoryRepository).findAll(pageable);
+        verify(categoryRepository).findAllCategoryDto(pageable);
     }
 }

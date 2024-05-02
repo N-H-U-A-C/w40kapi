@@ -18,7 +18,7 @@ class CategoryControllerIT {
     TestRestTemplate restTemplate;
 
     @Test
-    public void shouldReturnFirstSliceOf20CategoriesSortedByAscName() throws JSONException {
+    public void shouldReturnFirstSliceOf20CategoriesDtoSortedByAscName() throws JSONException {
         // given
         String expected = """
                 [

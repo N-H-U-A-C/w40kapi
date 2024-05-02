@@ -1,6 +1,7 @@
 package dev.cb.w40kapi.business.service;
 
 import dev.cb.w40kapi.business.domain.Category;
+import dev.cb.w40kapi.business.service.dto.CategoryDto;
 import dev.cb.w40kapi.persistence.CategoryRepository;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -28,7 +29,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Slice<Category> getAll(Pageable pageable) {
-        return categoryRepository.findAll(pageable);
+    public Slice<CategoryDto> getAllCategoryDto(Pageable pageable) {
+        return categoryRepository.findAllCategoryDto(pageable);
     }
 }
