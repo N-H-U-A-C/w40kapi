@@ -2,6 +2,7 @@ package dev.cb.w40kapi.controller;
 
 import dev.cb.w40kapi.business.domain.Source;
 import dev.cb.w40kapi.business.service.SourceService;
+import dev.cb.w40kapi.business.service.dto.SourceDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -35,83 +36,83 @@ class SourceControllerTest {
     private PageRequest defaultPageRequest;
     @Captor
     private ArgumentCaptor<PageRequest> captor;
-    private Slice<Source> slice;
+    private Slice<SourceDto> slice;
 
     @BeforeEach
     public void setUp() {
         defaultPageRequest = PageRequest.of(0, 20, Sort.by(Sort.Direction.ASC, "name"));
         slice = new PageImpl<>(List.of(
-                new Source(33, "Test", Year.of(2011)),
-                new Source(5, "Rulebook", Year.of(1998))));
+                new SourceDto(33, "Test", Year.of(2011)),
+                new SourceDto(5, "Rulebook", Year.of(1998))));
     }
 
     @Test
-    public void shouldCallGetAllOfSourceService() {
+    public void shouldCallGetAllSourceDtoOfSourceService() {
         // given
-        when(sourceService.getAll(defaultPageRequest)).thenReturn(slice);
+        when(sourceService.getAllSourceDto(defaultPageRequest)).thenReturn(slice);
 
         // when
-        classUnderTest.getAll(defaultPageRequest);
+        classUnderTest.getAllSourceDto(defaultPageRequest);
 
         // then
-        verify(sourceService).getAll(defaultPageRequest);
+        verify(sourceService).getAllSourceDto(defaultPageRequest);
     }
 
     @Test
-    public void pageRequestShouldBeFirstPageOf20SourcesSortedByAscName() throws Exception {
+    public void pageRequestShouldBeFirstPageOf20SourcesDtoSortedByAscName() throws Exception {
         // given
-        when(sourceService.getAll(defaultPageRequest)).thenReturn(slice);
+        when(sourceService.getAllSourceDto(defaultPageRequest)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/sources"));
 
         // then
-        verify(sourceService).getAll(captor.capture());
+        verify(sourceService).getAllSourceDto(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(defaultPageRequest);
     }
 
     @Test
-    public void pageRequestShouldBeSecondPageOfSources() throws Exception {
+    public void pageRequestShouldBeSecondPageOfSourcesDto() throws Exception {
         // given
         PageRequest secondPage = PageRequest.of(1, 20, Sort.by(Sort.Direction.ASC, "name"));
-        when(sourceService.getAll(secondPage)).thenReturn(slice);
+        when(sourceService.getAllSourceDto(secondPage)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/sources?page=1"));
 
         // then
-        verify(sourceService).getAll(captor.capture());
+        verify(sourceService).getAllSourceDto(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(secondPage);
     }
 
     @Test
-    public void pageRequestShouldBePageOf5Sources() throws Exception {
+    public void pageRequestShouldBePageOf5SourcesDto() throws Exception {
         // given
         PageRequest pageOfFiveSources = PageRequest.of(0, 5, Sort.by(Sort.Direction.ASC, "name"));
-        when(sourceService.getAll(pageOfFiveSources)).thenReturn(slice);
+        when(sourceService.getAllSourceDto(pageOfFiveSources)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/sources?size=5"));
 
         // then
-        verify(sourceService).getAll(captor.capture());
+        verify(sourceService).getAllSourceDto(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(pageOfFiveSources);
     }
 
     @Test
-    public void pageRequestShouldBePageOfSourcesSortedByDescName() throws Exception {
+    public void pageRequestShouldBePageOfSourcesDtoSortedByDescName() throws Exception {
         // given
         PageRequest pageSortedByDescName = PageRequest.of(0, 20, Sort.by(Sort.Direction.DESC, "name"));
-        when(sourceService.getAll(pageSortedByDescName)).thenReturn(slice);
+        when(sourceService.getAllSourceDto(pageSortedByDescName)).thenReturn(slice);
 
         // when
         mockMvc.perform(get("/sources?sort=name,desc"));
 
         // then
-        verify(sourceService).getAll(captor.capture());
+        verify(sourceService).getAllSourceDto(captor.capture());
         PageRequest usedPageRequest = captor.getValue();
         assertThat(usedPageRequest).isEqualTo(pageSortedByDescName);
     }

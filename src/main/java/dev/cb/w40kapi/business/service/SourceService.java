@@ -1,6 +1,6 @@
 package dev.cb.w40kapi.business.service;
 
-import dev.cb.w40kapi.business.domain.Source;
+import dev.cb.w40kapi.business.service.dto.SourceDto;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 
@@ -13,10 +13,10 @@ import org.springframework.data.domain.Slice;
 public interface SourceService {
 
     /**
-     * Returns a {@link Slice} of {@link dev.cb.w40kapi.business.domain.Source} meeting the paging restriction provided in the {@link Pageable} object.
+     * Returns a {@link Slice} of {@link SourceDto} meeting the paging restriction provided in the {@link Pageable} object.
      *
      * @param pageable the {@code Pageable} to request a sliced result.
-     * @return a {@code Slice} of {@code Source}.
+     * @return a {@code Slice} of {@code SourceDto}.
      */
-    Slice<Source> getAll(Pageable pageable);
+    Slice<SourceDto> getAllSourceDto(Pageable pageable);
 }

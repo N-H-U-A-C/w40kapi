@@ -1,6 +1,6 @@
 package dev.cb.w40kapi.business.service;
 
-import dev.cb.w40kapi.business.domain.Source;
+import dev.cb.w40kapi.business.service.dto.SourceDto;
 import dev.cb.w40kapi.persistence.SourceRepository;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -28,7 +28,7 @@ public class SourceServiceImpl implements SourceService {
     }
 
     @Override
-    public Slice<Source> getAll(Pageable pageable) {
-        return sourceRepository.findAll(pageable);
+    public Slice<SourceDto> getAllSourceDto(Pageable pageable) {
+        return sourceRepository.findAllSourceDto(pageable);
     }
 }
