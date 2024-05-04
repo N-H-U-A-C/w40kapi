@@ -35,12 +35,13 @@ public class SourceJsonTest {
                     "publication": "2011"
                 }
                 """;
-        sourceArray = Arrays.array(new Source(33, "Test", Year.of(2011)),
+        sourceArray = Arrays.array(
+                new Source(33, "Test", Year.of(2011)),
                 new Source(5, "Rulebook", Year.of(1998)));
         sourceArrayJson = """
                 [
-                 {"id": 33, "name": "Test", "publication" : "2011"},   
-                 {"id": 5, "name": "Rulebook", "publication" : "1998"}   
+                 {"id": 33, "name": "Test", "publication" : "2011"},
+                 {"id": 5, "name": "Rulebook", "publication" : "1998"}
                 ]
                 """;
     }

@@ -33,7 +33,8 @@ class CategoryJsonTest {
                   "name": "Dummy"
                 }
                 """;
-        categoryArray = Arrays.array(new Category(55, "Test"),
+        categoryArray = Arrays.array(
+                new Category(55, "Test"),
                 new Category(1, "Ok"));
         categoryArrayJson = """
                 [
