@@ -44,7 +44,7 @@ public class CategoryDtoJsonTest {
     }
 
     @Test
-    public void categoryShouldSerialize() throws JsonProcessingException, JSONException {
+    public void categoryDtoShouldSerialize() throws JsonProcessingException, JSONException {
         // given
 
         // when
@@ -55,7 +55,7 @@ public class CategoryDtoJsonTest {
     }
 
     @Test
-    public void categoryShouldDeserialize() throws JsonProcessingException {
+    public void categoryDtoShouldDeserialize() throws JsonProcessingException {
         // given
 
         // when
@@ -66,7 +66,7 @@ public class CategoryDtoJsonTest {
     }
 
     @Test
-    public void categoryArrayShouldSerialize() throws JsonProcessingException, JSONException {
+    public void categoryDtoArrayShouldSerialize() throws JsonProcessingException, JSONException {
         // given
 
         // when
@@ -77,7 +77,7 @@ public class CategoryDtoJsonTest {
     }
 
     @Test
-    public void categoryArrayShouldDeserialize() throws JsonProcessingException {
+    public void categoryDtoArrayShouldDeserialize() throws JsonProcessingException {
         // given
 
         // when
