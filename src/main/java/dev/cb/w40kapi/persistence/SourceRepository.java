@@ -1,7 +1,6 @@
 package dev.cb.w40kapi.persistence;
 
 import dev.cb.w40kapi.business.domain.Source;
-import dev.cb.w40kapi.business.service.dto.CategoryDto;
 import dev.cb.w40kapi.business.service.dto.SourceDto;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -18,10 +17,10 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 public interface SourceRepository extends CrudRepository<Source, Integer>, PagingAndSortingRepository<Source, Integer> {
 
     /**
-     * Returns a {@link Slice} of {@link CategoryDto} meeting the paging restriction provided in the {@link Pageable} object.
+     * Returns a {@link Slice} of {@link SourceDto} meeting the paging restriction provided in the {@link Pageable} object.
      *
      * @param pageable the {@code Pageable} to request a sliced result.
-     * @return a {@code Slice} of {@code CategoryDto}.
+     * @return a {@code Slice} of {@code SourceDto}.
      */
     @Query("""
             SELECT new dev.cb.w40kapi.business.service.dto.SourceDto(
